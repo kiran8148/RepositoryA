@@ -24,6 +24,16 @@ on:
       default: 'RepositoryB'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  send-request-to-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          curl -X POST 'https://api.github.com/repos/kiran8148/RepositoryB/actions/workflows/repositoryb.yml/dispatches' \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -H 'Authorization: Bearer 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' \
+          -d '{"ref":"main"}'
+          
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
