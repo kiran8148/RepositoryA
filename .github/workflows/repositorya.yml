@@ -22,7 +22,7 @@ jobs:
         run: |
           curl -X POST 'https://api.github.com/repos/kiran8148/RepositoryB/actions/workflows/repositoryb.yml/dispatches' \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H 'Authorization: Bearer ${{ env.GITHUB_TOKEN }}' \
+          -H 'Authorization: Bearer ${{ secrets.PAT_NEW_TOKEN }}' \
           -d '{"ref":"main"}'
           
   # This workflow contains a single job called "build"
